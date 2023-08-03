@@ -1,5 +1,7 @@
 ## main.py
 import random
+import sys
+import os
 
 def answer_check_word(answer_words, words_en, random_index) :
     if (answer_words == words_en[random_index]) :
@@ -13,19 +15,39 @@ def answer_check_sentence(answer_sentences, sentences_en, random_index) :
     else :
         return sentences_en[random_index]
 
+def resource_path(relative_path) :
+    try :
+        base_path = sys._MEIPASS
+    except Exception :
+        base_path = os.path.abspath(".")
+
+    return os.path.join(base_path, relative_path)
+
 def main() :
-    with open("Unit 1/Words_EN.txt") as words :     ## 영단어
-        words_en = words.readlines()
+    while (True) :
+        unit = "Unit " + input("Please enter the Unit number: ")
 
-    with open("Unit 1/Words_KOR.txt") as words :    ## 한국어 단어
-        words_kor = words.readlines()
+        try :
+            words_en_path = resource_path("Resource/" + unit + "/Words_EN.txt")
+            words_kor_path = resource_path("Resource/" + unit + "/Words_KOR.txt")
+            sentences_en_path = resource_path("Resource/" + unit + "/Sentences_EN.txt")
+            sentences_kor_path = resource_path("Resource/" + unit + "/Sentences_KOR.txt")
 
-    with open("Unit 1/Sentences_EN.txt") as sentences :    ## 영문장
-        sentences_en = sentences.readlines()
+            with open(words_en_path) as words :     ## 영단어
+                words_en = words.readlines()
 
-    with open("Unit 1/Sentences_KOR.txt") as sentences :   ## 한국어 문장
-        sentences_kor = sentences.readlines()
+            with open(words_kor_path) as words :    ## 한국어 단어
+                words_kor = words.readlines()
 
+            with open(sentences_en_path) as sentences :    ## 영문장
+                sentences_en = sentences.readlines()
+
+            with open(sentences_kor_path) as sentences :   ## 한국어 문장
+                sentences_kor = sentences.readlines()
+
+            break
+        except FileNotFoundError :
+            print("This unit isn't ready yet.")
 
     words_en = [i.strip() for i in words_en]
     words_kor = [i.strip() for i in words_kor]
