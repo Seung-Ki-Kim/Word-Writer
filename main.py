@@ -33,16 +33,16 @@ def main() :
             sentences_en_path = resource_path("Resource/" + unit + "/Sentences_EN.txt")
             sentences_kor_path = resource_path("Resource/" + unit + "/Sentences_KOR.txt")
 
-            with open(words_en_path) as words :     ## 영단어
+            with open(words_en_path, encoding = "UTF-8") as words :     ## 영단어
                 words_en = words.readlines()
 
-            with open(words_kor_path) as words :    ## 한국어 단어
+            with open(words_kor_path, encoding = "UTF-8") as words :    ## 한국어 단어
                 words_kor = words.readlines()
 
-            with open(sentences_en_path) as sentences :    ## 영문장
+            with open(sentences_en_path, encoding = "UTF-8") as sentences :    ## 영문장
                 sentences_en = sentences.readlines()
 
-            with open(sentences_kor_path) as sentences :   ## 한국어 문장
+            with open(sentences_kor_path, encoding = "UTF-8") as sentences :   ## 한국어 문장
                 sentences_kor = sentences.readlines()
 
             break
