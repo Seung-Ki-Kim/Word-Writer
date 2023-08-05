@@ -64,6 +64,8 @@ def main() :
         print("- Please answer the question.")
 
         print("Q1: " + question_words)
+        print("Q2: " + question_sentences)
+
         answer_words = input("A1: ")
 
         if (answer_words == "/exit") :
@@ -74,7 +76,6 @@ def main() :
 
             continue
 
-        print("Q2: " + question_sentences)
         answer_sentences = input("A2: ")
 
         if (answer_sentences == "/exit") :
@@ -85,6 +86,7 @@ def main() :
             print()
 
             continue
+
 
         print("- Result")
         print(answer_check_word(answer_words, words_en, random_index))
