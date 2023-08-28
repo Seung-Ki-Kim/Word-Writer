@@ -72,6 +72,7 @@ def main() :
             break
         elif (answer_words == "/pass") :
             print(words_en[random_index])
+            print(sentences_en[random_index])
             print()
 
             continue
