@@ -77,6 +77,8 @@ def main() :
 
             continue
 
+        print(answer_check_word(answer_words, words_en, random_index))
+
         answer_sentences = input("A2: ")
 
         if (answer_sentences == "/exit") :
@@ -88,9 +90,6 @@ def main() :
 
             continue
 
-
-        print("- Result")
-        print(answer_check_word(answer_words, words_en, random_index))
         print(answer_check_sentence(answer_sentences, sentences_en, random_index))
         print()
 
